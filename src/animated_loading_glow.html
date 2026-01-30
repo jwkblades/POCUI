@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2026 James Blades
+MIT Licensed (See LICENSE file for details)
+-->
+<html>
+    <head>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+            }
+            body {
+                width: 100vw;
+                height: 100vh;
+            }
+            .content {
+                background: #fff;
+                padding: 20px;
+                width: 320px;
+                border-radius: 10px;
+                margin: 30px;
+                cursor: pointer;
+            }
+            .backdrop {
+                z-index: -1;
+                position: absolute;
+                overflow: hidden;
+                filter: blur(15px);
+                left: 0;
+                top: 0;
+                width: 0;
+                height: 0;
+                transition: filter 200ms;
+                border-radius: 10px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .glow {
+                content: "";
+                min-width: 200vw;
+                min-height: 200vh;
+                background: conic-gradient(#f00, #0f0 30%, #00f 60%, #0f0 90%, #f00 100%);
+                animation: 1s linear 0s infinite rotator;
+            }
+
+            @keyframes rotator {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const spinner = document.querySelector(".backdrop");
+                document.body.addEventListener("click", (e) => {
+                    const next = e.target.nextElementSibling;
+                    if ((next !== null && next.classList.contains("backdrop")) || e.target === document.body) {
+                        return;
+                    }
+
+                    const s = spinner.cloneNode(true);
+                    const r = e.target.getBoundingClientRect();
+                    s.style.top = (r.top + window.scrollY) + "px";
+                    s.style.left = (r.left + window.scrollX) + "px";
+                    s.style.width = r.width + "px";
+                    s.style.height = r.height + "px";
+                    e.target.after(s);
+                    setTimeout(() => {
+                        s.style.filter = "blur(0px)";
+                        setTimeout(() => {
+                            s.parentNode.removeChild(s);
+                        }, 205);
+                    }, 5000);
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <div class="backdrop">
+        <div class="glow"></div>
+    </div>
+    <div class="content">
+        To run this, simply click on me! It will have a glowing gradient border that fades after a few seconds.
+        Inspiration came from Microsoft's Loop components which allow loading parts of other documents without having to
+        duplicate them (pretty cool feature!), but while they are loading a similar effect plays and then fades away
+        once the component has finished loading.
+    </div>
+    <div class="content">
+        Or click here!
+    </div>
+    </body>
+</html>
