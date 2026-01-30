@@ -13,3 +13,8 @@ it should work.
 **NOTE**: I do not verify that all examples are cross-browser compatible. Most
 of them are written in Firefox, so they work there. This also means the examples
 won't be using features that Firefox doesn't support.
+
+### Samples
+
+* [Glowing Border
+Animation](https://jwkblades.github.io/POCUI/src/animated_loading_glow.html)
