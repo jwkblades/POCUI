@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2026 James Blades
+MIT Licensed (See LICENSE file for details)
+-->
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .achievement {
+                border-radius: 50px;
+                border-top: 1px solid #fff;
+                border-bottom: 1px solid #aaa;
+                background: linear-gradient(to bottom, #efefef, #ddd);
+                filter: drop-shadow(2px 2px 3px #999);
+                width: 400px;
+                min-height: 102px;
+                padding: 20px;
+                margin: 20px auto;
+                color: #333;
+                font-family: sans-serif;
+            }
+            .achievement span::before {
+                content: "";
+                position: absolute;
+                width: 60px;
+                height: 58px;
+                top: -1px;
+                left: 0;
+                border-radius: 40px;
+                border-bottom: 1px solid #fff;
+                border-top: 1px solid #666;
+                background:
+                        radial-gradient(circle at bottom right,
+                            rgba(255, 255, 255, 0) 60%,
+                            rgba(255, 255, 255, .4) 61%,
+                            rgba(255, 255, 255, .6) 75%,
+                            rgba(255, 255, 255, .8) 80%,
+                            rgba(255, 255, 255, .4) 85%
+                        );
+                filter: blur(1px);
+            }
+            .achievement span {
+                display: block;
+                float: left;
+                height: 60px;
+                width: 60px;
+                font-size: 24pt;
+                border-radius: 40px;
+                background: linear-gradient(to bottom, #ddd, #efefef);
+                text-align: center;
+                line-height: 60px;
+                box-shadow: inset 2px 2px 3px #999;
+                border-bottom: 1px solid #fff;
+                border-top: 1px solid #666;
+                margin-right: 20px;
+                filter: drop-shadow(3px 3px 5px #999);
+            }
+            .achievement h1 {
+                font-size: 16pt;
+                margin: 0;
+            }
+            .achievement p {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="achievement">
+        <span>🏆</span>
+        <h1>Achievement Unlocked</h1>
+        <p>95% minimum code coverage!</p>
+    </div>
+    </body>
+</html>

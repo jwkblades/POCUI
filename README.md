@@ -16,5 +16,7 @@ won't be using features that Firefox doesn't support.
 
 ### Samples
 
+* [Achievement
+Unlocked](https://jwkblades.github.io/POCUI/src/achievement_unlocked.html)
 * [Glowing Border
 Animation](https://jwkblades.github.io/POCUI/src/animated_loading_glow.html)
